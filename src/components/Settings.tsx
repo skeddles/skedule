@@ -34,7 +34,7 @@ export default function TimelineEditor({isOpen, timeSlots, setTimeslots, startTi
 			<div className="container">
 		
 
-				<h1>Settings</h1>
+				<h1>skedule</h1>
 
 				<h2>Start Time</h2>
 				<TimeSelector startTime={startTime} setStartTime={setStartTime}/>

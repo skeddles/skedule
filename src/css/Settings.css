@@ -11,7 +11,7 @@
 		width: 300px;
 		position: absolute;
 		right: 0.25em;
-		padding: 1em;
+		padding: 0 1em;
 		box-sizing: border-box;
 		height: 100%;
 		overflow-y: scroll;
@@ -20,9 +20,11 @@
 		
 		padding-bottom: 4em;
 
-		> h2 {
-			margin-top: 1em;
+		> h1 {
+			margin-bottom: 0;
+			color: var(--fg-darker);
 		}
+		> h2 {margin-top: 0.5em;}
 
 		> button {
 			display: flex;
