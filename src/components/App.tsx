@@ -10,6 +10,7 @@ import Clock from './Clock'
 import '../css/reset.css'
 import '../css/App.css'
 import '../css/colors.css'
+
 import SettingsIcon from '../assets/gear.svg?react'
 
 
@@ -19,6 +20,7 @@ function App() {
 	const [startTime, setStartTime] = useState(parseInt(localStorage.getItem("startTime") || "480") ?? 480);
 	const [settingsPanelIsOpen, setSettingsPanelIsOpen] = useState(timeslots.length==0);
 	const [currentStatus, setCurrentStatus] = useState('before');
+	const [showClock, setShowClock] = useState(JSON.parse(localStorage.getItem("showClock") || "true") ?? true);
 	const statusTimer:any = useRef(null);
 
 	console.log(timeslots);
@@ -54,17 +56,22 @@ function App() {
 		localStorage.setItem("timeSlots", JSON.stringify(newTimeSlots));
 	}
 
+	function updateShowClock (newShowClock: boolean) {
+		setShowClock(newShowClock);
+		localStorage.setItem("showClock", newShowClock.toString());
+	}
+
 	checkForStatusUpdate();
 
 	return (
 		<div className="app">
-			<Settings isOpen={settingsPanelIsOpen} timeSlots={timeslots} setTimeslots={updateTimeSlots} startTime={startTime} setStartTime={updateStartTime}/>
+			<Settings isOpen={settingsPanelIsOpen} timeSlots={timeslots} setTimeslots={updateTimeSlots} startTime={startTime} setStartTime={updateStartTime} showClock={showClock} setShowClock={updateShowClock}/>
 
 			<button className="settingsButton" onClick={() => setSettingsPanelIsOpen(!settingsPanelIsOpen)}><SettingsIcon /></button>
 
 			<div className="main" onClick={()=>setSettingsPanelIsOpen(false)}>
-				<Clock />
-				<Display timeSlots={timeslots} startTime={startTime}/>
+				{showClock && <Clock />}
+				<Display timeSlots={timeslots} startTime={startTime} />
 				{currentStatus=='running' && <Timeline timeSlots={timeslots} startTime={startTime}/>}
 				{currentStatus=='before' && <div className="not-running">Work will begin soon.</div>}
 				{currentStatus=='after' && <div className="not-running">Rest easy, work is over.</div>}

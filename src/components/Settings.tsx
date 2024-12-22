@@ -3,11 +3,22 @@ import minutesToTime from '../utils/minutes-to-time';
 
 import SlotEditor from './SlotEditor'
 import TimeSelector from './TimeSelector';
+import Checkbox from './Checkbox';
 
 import '../css/Settings.css'
 import PlusIcon from '../assets/plus.svg?react'
 
-export default function TimelineEditor({isOpen, timeSlots, setTimeslots, startTime, setStartTime}: {isOpen: boolean, timeSlots: timeslot[], setTimeslots: Function, startTime: number, setStartTime:Function}) {
+interface timeLineEditorProps {
+	isOpen: boolean;
+	timeSlots: timeslot[];
+	setTimeslots: Function;
+	startTime: number;
+	setStartTime: Function;
+	showClock: boolean;
+	setShowClock: Function;
+}
+
+export default function TimelineEditor({isOpen, timeSlots, setTimeslots, startTime, setStartTime, showClock, setShowClock}: timeLineEditorProps) {
 
 	const totalMinutes = timeSlots.reduce((acc, ts) => acc + ts.length, 0);
 	const totalTime = Math.floor(totalMinutes/60) + ':' + (totalMinutes%60).toString().padStart(2, '0');
@@ -35,6 +46,8 @@ export default function TimelineEditor({isOpen, timeSlots, setTimeslots, startTi
 
 				<button onClick={addSlot}><PlusIcon/> Add Slot</button>
 
+				<h2>Display</h2>
+				<Checkbox label="Show Clock" checked={showClock} onChange={setShowClock}/>
 
 				<div className="tipping">
 					<p>Like this tool?</p>

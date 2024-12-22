@@ -1,0 +1,26 @@
+.checkbox {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+
+	input {
+		display: none;
+	}
+
+	div {
+		display: inline-block;
+		background-color: var(--bg-darkerer);
+		padding: 0.25em;
+		border-radius: 0.25em;
+		margin-right: 0.5em;
+		line-height: 0%;
+
+		svg {
+			fill: var(--fg);
+		}
+	}
+
+	input:not(:checked) + div svg {
+		visibility: hidden;
+	}
+}

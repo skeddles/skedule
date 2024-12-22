@@ -26,9 +26,9 @@ export default function Display({timeSlots,startTime}: DisplayProps) {
 		lastTask.current = currentTask.index;
 	}
  
-	return (
+	return (<>
 		<div className="Display">
 			<h1>{currentTask.slot.name}</h1>
 		</div>
-	)
+	</>)
 }

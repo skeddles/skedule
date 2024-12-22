@@ -13,6 +13,12 @@
 		margin: 0.5em 0.5em 0.5em 0;
 		flex-basis: 40%;
 		width: 3em;
+		&[type="number"] {
+			appearance: textfield;
+			&:hover, &:focus {
+				appearance: auto;
+			}
+		}
 	}
 
 	button {
