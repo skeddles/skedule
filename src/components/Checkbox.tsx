@@ -14,6 +14,6 @@ export default function Checkbox({label, checked, onChange}: CheckboxProps) {
 			<input type="checkbox" checked={checked} onChange={(e) => onChange(e.target.checked)}/>
 			<div><Check/></div>
 			{label}
-		</label>
+		</label> 
 	)
 }
