@@ -75,7 +75,7 @@ function App() {
 				{currentStatus=='running' && <Timeline timeSlots={timeslots} startTime={startTime}/>}
 				{currentStatus=='before' && <div className="not-running">Work will begin soon.</div>}
 				{currentStatus=='after' && <div className="not-running">Rest easy, work is over.</div>}
-				{currentStatus=='setup' && <div className="not-running">Add some slots to begin.</div>}
+				{currentStatus=='setup' && <div className="not-running">Add a time block to begin.</div>}
 				<div className="spacer"></div>
 			</div>
 			

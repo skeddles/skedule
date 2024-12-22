@@ -1,6 +1,6 @@
 .Settings {
 	flex-shrink: 0;
-	width: 300px;
+	width: 320px;
 	background: var(--bg-darker);
 	box-sizing: border-box;
 	overflow: hidden;
@@ -23,7 +23,39 @@
 		> h1 {
 			margin-bottom: 0;
 			color: var(--fg-darker);
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			button {
+				background: none;
+				border: none;
+				cursor: pointer;
+				transition: transform 0.1s ease-in-out;
+				visibility: hidden;
+
+				&:hover {
+					transform: scale(1.2);
+
+					svg {
+						path {fill: var(--fg)}
+					}
+				}
+
+				svg {
+					width: 2.5em;
+					height: 2.5em;
+					path {
+						fill: var(--fg-darkerer);
+						transition: fill 0.1s ease-in-out;
+					}
+					
+				}
+			}
+
+			&:hover button {visibility: visible}
 		}
+
 		> h2 {margin-top: 0.5em;}
 
 		> button {
@@ -63,7 +95,7 @@
 
 		.tipping {
 			text-align: center;
-			margin: 4em 1em 0em;
+			margin: 1em 1em 0em;
 			p {
 				margin: 0;
 				font-size: 0.8em;
@@ -82,5 +114,25 @@
 		width: 0px;
 	}
 	
+	.helpPopup {
+		font-size: 0.9em;
+		color: var(--fg-darker);
+		overflow: hidden;
+		transition: height 0.1s ease-in-out;
+		interpolate-size: allow-keywords;
 
+		p {margin-top: 0}
+		p.social {
+			svg {vertical-align:middle;}
+			a:not(:hover) svg path {fill: var(--fg-darkerer)}
+		}
+		a {
+			display: inline-block;
+			padding: 0.25em;
+			transition: transform 0.1s ease-in-out;
+			&:hover {
+				transform: scale(1.2);
+			}
+		}
+	}
 }
