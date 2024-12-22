@@ -27,17 +27,14 @@ export default function TimelineEditor({isOpen, timeSlots, setTimeslots, startTi
 
 				<h2>Start Time</h2>
 				<TimeSelector startTime={startTime} setStartTime={setStartTime}/>
-				
+				<div className="info">End Time: {endTime}</div>
+
 				<h2>Time Slots</h2>
 				{timeSlots.map((ts,i) => (<SlotEditor index={i} key={i} slot={ts} setTimeslots={setTimeslots} timeSlots={timeSlots}/>))}
-
+				<div className="info">Total Time: {totalTime}</div>
 
 				<button onClick={addSlot}><PlusIcon/> Add Slot</button>
 
-				<div className="info">
-					Total Time: {totalTime}<br/>
-					End Time: {endTime}
-				</div>
 
 				<div className="tipping">
 					<p>Like this tool?</p>
