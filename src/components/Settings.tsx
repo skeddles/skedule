@@ -5,7 +5,7 @@ import SlotEditor from './SlotEditor'
 import TimeSelector from './TimeSelector';
 
 import '../css/Settings.css'
-import plusIcon from '../assets/plus.svg'
+import PlusIcon from '../assets/plus.svg?react'
 
 export default function TimelineEditor({isOpen, timeSlots, setTimeslots, startTime, setStartTime}: {isOpen: boolean, timeSlots: timeslot[], setTimeslots: Function, startTime: number, setStartTime:Function}) {
 
@@ -32,7 +32,7 @@ export default function TimelineEditor({isOpen, timeSlots, setTimeslots, startTi
 				{timeSlots.map((ts,i) => (<SlotEditor index={i} key={i} slot={ts} setTimeslots={setTimeslots} timeSlots={timeSlots}/>))}
 
 
-				<button onClick={addSlot}><img src={plusIcon} /> Add Slot</button>
+				<button onClick={addSlot}><PlusIcon/> Add Slot</button>
 
 				<div className="info">
 					Total Time: {totalTime}<br/>

@@ -3,7 +3,7 @@ import { timeslot } from '../types/timeSlot';
 import HuePicker from '../components/HuePicker';
 
 import '../css/SlotEditor.css'
-import trash from '../assets/trash.svg'
+import TrashIcon from '../assets/trash.svg?react'
 
 interface SlotEditorProps {
 	index: number;
@@ -52,6 +52,6 @@ export default function SlotEditor({index, slot, setTimeslots, timeSlots}: SlotE
 		<input type="text" value={slot.name} onChange={updateName} />
 		<input type="number" value={slot.length} onChange={updateLength}/>
 		<HuePicker value={slot.hue} setValue={updateHue}/>
-		<button onClick={deleteSlot}><img src={trash}/></button>
+		<button onClick={deleteSlot}><TrashIcon/></button>
 	</div>)
 }

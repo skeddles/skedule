@@ -32,18 +32,23 @@
 		left: 0.5em;
 		background: none;
 		border: none;
-		opacity: 0.2;
-		transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
+		transition: transform 0.1s ease-in-out;
 		cursor: pointer;
+		
 
-		img {
+		svg {
 			width: 3em;
 			height: 3em;
+			path {
+				fill: var(--bg-lighter);
+				transition: fill 0.1s ease-in-out;
+			}
+			
 		}	
 
 		&:hover {
-			opacity: 0.5;
 			transform: scale(1.05);
+			svg path {fill: var(--fg)}
 		}
 			
 	}

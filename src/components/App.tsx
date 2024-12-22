@@ -10,7 +10,7 @@ import Clock from './Clock'
 import '../css/reset.css'
 import '../css/App.css'
 import '../css/colors.css'
-import settingsIcon from '../assets/gear.svg'
+import SettingsIcon from '../assets/gear.svg?react'
 
 
 function App() {
@@ -60,7 +60,7 @@ function App() {
 		<div className="app">
 			<Settings isOpen={settingsPanelIsOpen} timeSlots={timeslots} setTimeslots={updateTimeSlots} startTime={startTime} setStartTime={updateStartTime}/>
 
-			<button className="settingsButton" onClick={() => setSettingsPanelIsOpen(!settingsPanelIsOpen)}><img src={settingsIcon} alt="Settings" /></button>
+			<button className="settingsButton" onClick={() => setSettingsPanelIsOpen(!settingsPanelIsOpen)}><SettingsIcon /></button>
 
 			<div className="main" onClick={()=>setSettingsPanelIsOpen(false)}>
 				<Clock />
