@@ -61,18 +61,16 @@
 
 		.tipping {
 			text-align: center;
-			margin: 2em 1em 0em;
+			margin: 4em 1em 0em;
 			p {
-				margin: 0.5em 0 0;
+				margin: 0;
 				font-size: 0.8em;
 				font-weight: bold;
 				color: var(--fg-darkerer);
 			}
 			a {
 				opacity: 0.25;
-				&:hover {
-					opacity: 1;
-				}
+				&:hover {opacity: 1}
 			}
 		}
 	
