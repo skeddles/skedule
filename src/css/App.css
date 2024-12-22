@@ -1,0 +1,50 @@
+
+.app {
+	width: 100%;
+	height: 100%;
+	display: flex;
+
+	background-color: var(--bg);
+	color: var(--fg);
+
+	.main {
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding: 1em;
+
+		.not-running {
+			color: var(--fg-darkerer);
+			text-align: center;
+			font-size: 1.5em;
+			font-style: italic;
+		}
+
+		.spacer {
+			flex-grow: 1;
+		}
+	}
+
+	.settingsButton {
+		position: fixed;
+		bottom: 0.5em;
+		left: 0.5em;
+		background: none;
+		border: none;
+		opacity: 0.2;
+		transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
+		cursor: pointer;
+
+		img {
+			width: 3em;
+			height: 3em;
+		}	
+
+		&:hover {
+			opacity: 0.5;
+			transform: scale(1.05);
+		}
+			
+	}
+}

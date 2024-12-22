@@ -1,0 +1,15 @@
+.Timeline {
+	display: flex;
+	align-items: stretch;
+	height: 4em;
+	border-radius: 1em;
+	overflow: hidden;
+	position: relative;
+
+	.fill {
+		position: absolute;
+		background-color: var(--bg-darker);
+		height: 100%;
+		transition: width 1000ms;
+	}
+}

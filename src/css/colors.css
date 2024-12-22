@@ -1,0 +1,14 @@
+html {
+	
+	--bg: #282c34;
+		--bg-lighter: #364055;
+			--bg-lighterer: #425471;
+		--bg-darker: #1c2028;
+			--bg-darkerer:#11151c;
+
+	--fg: #81a4eb;
+		--fg-lighter: #a3c2ff;
+			--fg-lighterer: #b9dbfe;
+		--fg-darker: #6487cf;
+			--fg-darkerer: #476db9;
+}

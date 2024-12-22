@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+.TimeSelector {
+
+	input {
+		background-color: var(--bg-darkerer);
+		border: none;
+		border-radius: 0.2em;
+		color: var(--fg-lighter);
+		padding: 0.5em 1em;
+		font-weight: bold;
+		font-family: "Share Tech Mono", serif;
+		font-size: 1.1em;
+		
+		width: 5em;
+		text-align: center;
+
+		&:focus {
+			outline: none;
+		}
+	}
+}
