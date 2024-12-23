@@ -8,11 +8,12 @@ import bellSound from '../assets/bell.mp3';
 interface DisplayProps {
 	timeSlots: timeslot[];
 	startTime: number;
+	playSounds: boolean;
 }
 
 const audio = new Audio(bellSound);
 
-export default function Display({timeSlots,startTime}: DisplayProps) {
+export default function Display({timeSlots,startTime,playSounds}: DisplayProps) {
 
 	const currentTask = getCurrentTask(timeSlots, startTime);
 
@@ -20,8 +21,8 @@ export default function Display({timeSlots,startTime}: DisplayProps) {
 	if (lastTask.current !== currentTask.index) {
 		console.log('task changed from', lastTask.current, 'to', currentTask.index);
 		if (currentTask.index > lastTask.current) {
-			
-			audio.play();
+			if (playSounds)
+				audio.play();
 		}
 		lastTask.current = currentTask.index;
 	}

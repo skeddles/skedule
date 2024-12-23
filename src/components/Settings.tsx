@@ -22,9 +22,11 @@ interface timeLineEditorProps {
 	setStartTime: Function;
 	showClock: boolean;
 	setShowClock: Function;
+	playSounds: boolean;
+	setPlaySounds: Function;
 }
 
-export default function TimelineEditor({isOpen, timeSlots, setTimeslots, startTime, setStartTime, showClock, setShowClock}: timeLineEditorProps) {
+export default function TimelineEditor({isOpen, timeSlots, setTimeslots, startTime, setStartTime, showClock, setShowClock, playSounds, setPlaySounds}: timeLineEditorProps) {
 
 	const [helpPopupIsOpen, setHelpPopupIsOpen] = useState(false);
 
@@ -89,6 +91,7 @@ export default function TimelineEditor({isOpen, timeSlots, setTimeslots, startTi
 
 				<h2>Display</h2>
 				<Checkbox label="Show Clock" checked={showClock} onChange={setShowClock}/>
+				<Checkbox label="Play Sounds" checked={playSounds} onChange={setPlaySounds}/>
 
 
 
