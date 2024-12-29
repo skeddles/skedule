@@ -1,0 +1,21 @@
+.Info {
+	font-size: 0.9em;
+	color: var(--fg-darker);
+	overflow: hidden;
+	transition: height 0.1s ease-in-out;
+	interpolate-size: allow-keywords;
+
+	p {margin-top: 0}
+	p.social {
+		svg {vertical-align:middle;}
+		a:not(:hover) svg path {fill: var(--fg-darkerer)}
+	}
+	a {
+		display: inline-block;
+		padding: 0.25em;
+		transition: transform 0.1s ease-in-out;
+		&:hover {
+			transform: scale(1.2);
+		}
+	}
+}
