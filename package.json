@@ -1,26 +1,41 @@
 {
   "name": "skedule",
+  "description": "D time management app to keep you on task based on the current time",
+  "author": "skeddles",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "homepage": "./",
   "electron": "electron .",
   "dist": "electron-builder",
-  "main": "electron.js",
-
+  "main": "electron/main.js",
   "build": {
     "appId": "com.skeddles.skedule",
     "productName": "skedule",
     "directories": {
-      "output": "dist"
-    }
+      "output": "dist-app"
+    },
+	"win": {
+		"target": ["nsis", "portable"],
+		"icon": "src/assets/favicon.ico"
+	},
+	"linux": {
+		"target": ["AppImage", "deb", "rpm"],
+		"icon": ".assets/favicon.png"
+	},
+	"files": [
+		"dist/**/*",
+		"electron/**/*",
+		"package.json"
+	]
   },
-
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "desktop": "npm run build && npm run electron",
-	"electron": "electron ./electron/main.js",
+	"build-desktop": "electron-builder",
+	"build-desktop-linux": "electron-builder --linux",
+    "electron": "electron ./electron/main.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -35,6 +50,7 @@
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.4",
     "electron": "^33.2.1",
+    "electron-builder": "^25.1.8",
     "eslint": "^9.15.0",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",
