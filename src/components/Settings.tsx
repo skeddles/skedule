@@ -57,11 +57,11 @@ export default function TimelineEditor({isOpen, timeSlots, setTimeslots, startTi
 					<p>
 						<strong>skedule</strong> is a free tool that helps you plan out a daily schedule,
 						then displays the task you should be currently working on. This tool is ideal for 
-						helping you stay on your current task, but avoiding hyperfixation distrating you 
+						helping you stay on your current task, but avoiding hyperfixation distracting you 
 						from others. skedule picks your current task based on the current time, and therefore cannot be paused - similar to a work day. 
 					</p>
 					<p>
-						Add time blocks for each block of time you want to dedicate to a single thing. You can either keep it generic such as "Work" or "Clean", or you can update these with specific tasks at the beginning of each day. I reccomend including breaks in your schedule, as well as time for meals and other activities, as the clock waits for no one. 
+						Add time blocks for each block of time you want to dedicate to a single thing. You can either keep it generic such as "Work" or "Clean", or you can update these with specific tasks at the beginning of each day. I recommend including breaks in your schedule, as well as time for meals and other activities, as the clock waits for no one. 
 					</p>
 
 					<p className="social">
