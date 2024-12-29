@@ -7,5 +7,7 @@ export default function calculateElapsedPercentage(startTime: number, timeSlots:
 	const totalMinutes = calculateTotalMinutes(timeSlots);
 	const minutesIntoToday = getMinutesIntoToday();
 	const secondsIntoToday = 60 * minutesIntoToday + new Date().getSeconds();
-	return (secondsIntoToday - startTime*60) / (totalMinutes*60);
+	const startTimeInSeconds = startTime * 60;
+	const totalSeconds = totalMinutes * 60;
+	return (secondsIntoToday - startTimeInSeconds) / totalSeconds;
 }

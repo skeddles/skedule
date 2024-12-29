@@ -2,10 +2,17 @@
 	flex-grow: 1;
 	display: flex;
 	flex-direction: column;
-	justify-content: end;
-	align-items: center;
+	justify-content: space-between;
+	padding: 1em;
 
-	h1 {
-		font-size: 3em;
+	.not-running {
+		color: var(--fg-darkerer);
+		text-align: center;
+		font-size: 1.5em;
+		font-style: italic;
+	}
+
+	.spacer {
+		flex-grow: 1;
 	}
 }

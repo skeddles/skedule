@@ -1,35 +1,69 @@
-import {useRef} from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { timeslot } from '../types/timeSlot';
-import getCurrentTask from '../utils/get-current-task';
-import '../css/Display.css';
+import calculateElapsedPercentage from '../utils/calculate-elapsed-percentage';
+import calculateTotalMinutes from '../utils/calculate-total-minutes';
+import getMinutesIntoToday from '../utils/get-minutes-into-today';
 
-import bellSound from '../assets/bell.mp3';
+import Timeline from './Timeline'
+import Clock from './Clock'
+import CurrentTask from './CurrentTask'
+
+import '../css/Display.css';
 
 interface DisplayProps {
 	timeSlots: timeslot[];
 	startTime: number;
 	playSounds: boolean;
+	setSettingsPanelIsOpen: Function;
+	showClock: boolean;
 }
 
-const audio = new Audio(bellSound);
+export default function Display({timeSlots,startTime,playSounds,setSettingsPanelIsOpen,showClock}: DisplayProps) {
 
-export default function Display({timeSlots,startTime,playSounds}: DisplayProps) {
+	const [currentStatus, setCurrentStatus] = useState('before');
+    const [elapsedPercentage, setElapsedPercentage] = useState(calculateElapsedPercentage(startTime, timeSlots));
+    const timer = useRef<NodeJS.Timeout | undefined>(undefined);
+	useEffect(() => {
+		setElapsedPercentage(calculateElapsedPercentage(startTime, timeSlots));
+	}, [timeSlots, startTime]);
 
-	const currentTask = getCurrentTask(timeSlots, startTime);
+	clearInterval(timer.current);
+	timer.current = setInterval(() => {
+		setElapsedPercentage(calculateElapsedPercentage(startTime, timeSlots));
+	}, 1000);
 
-	const lastTask = useRef(currentTask.index);
-	if (lastTask.current !== currentTask.index) {
-		console.log('task changed from', lastTask.current, 'to', currentTask.index);
-		if (currentTask.index > lastTask.current) {
-			if (playSounds)
-				audio.play();
-		}
-		lastTask.current = currentTask.index;
+	function checkForStatusUpdate () {
+		const minutesIntoToday = getMinutesIntoToday();
+		const totalMinutes = calculateTotalMinutes(timeSlots);
+
+		let newStatus;
+		if (timeSlots.length === 0)
+			newStatus = 'setup';
+		else if (minutesIntoToday < startTime)
+			newStatus = 'before';
+		else if (minutesIntoToday < startTime + totalMinutes)
+			newStatus = 'running';
+		else 
+			newStatus = 'after';
+
+		if (newStatus !== currentStatus) 
+			setCurrentStatus(newStatus);
 	}
- 
-	return (<>
-		<div className="Display">
-			<h1>{currentTask.slot.name}</h1>
-		</div>
-	</>)
+
+	const statusTimer:any = useRef(null);
+
+	clearInterval(statusTimer.current);
+	statusTimer.current = setInterval(checkForStatusUpdate,500); 
+	
+	checkForStatusUpdate();
+
+	return (<div className="Display" onClick={()=>setSettingsPanelIsOpen(false)}>
+		{showClock && <Clock />}
+		<CurrentTask timeSlots={timeSlots} startTime={startTime} playSounds={playSounds} />
+		{currentStatus=='running' && <Timeline timeSlots={timeSlots} elapsedPercentage={elapsedPercentage}/>}
+		{currentStatus=='before' && <div className="not-running">Work will begin soon.</div>}
+		{currentStatus=='after' && <div className="not-running">Rest easy, work is over.</div>}
+		{currentStatus=='setup' && <div className="not-running">Add a time block to begin.</div>}
+		<div className="spacer"></div>
+	</div>)
 }

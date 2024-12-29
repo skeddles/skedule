@@ -18,6 +18,9 @@ export default function getCurrentTask(timeSlots: timeslot[], startTime: number)
 		const slotStartedBeforeNow = slotStartTime <= minutesIntoToday;
 		const slotEndsAfterNow = slotEndTime >= minutesIntoToday;
 		const isCurrentSlot = slotStartedBeforeNow && slotEndsAfterNow;
+
+		//if (isCurrentSlot) console.log('current slot:', {slot, previousSlots, lengthOfAllPreviousSlots, slotStartTime, slotEndTime, minutesIntoToday, slotStartedBeforeNow, slotEndsAfterNow, isCurrentSlot});
+
 		if (isCurrentSlot) return {index:i, slot:slot};
 	}
 
