@@ -4,6 +4,7 @@ import '../css/Info.css'
 import BlueskyIcon from '../assets/bluesky.svg?react'
 import YoutubeIcon from '../assets/youtube.svg?react'
 import ItchIoIcon from '../assets/itchio.svg?react'
+import KoFiIcon from '../assets/kofi.svg?react'
 
 interface InfoProps {
 	isOpen: boolean;
@@ -22,9 +23,22 @@ export default function Info({isOpen}: InfoProps) {
 			Add time blocks for each block of time you want to dedicate to a single thing. You can either keep it generic such as "Work" or "Clean", or you can update these with specific tasks at the beginning of each day. I recommend including breaks in your schedule, as well as time for meals and other activities, as the clock waits for no one. 
 		</p>
 
-		{!RUNNING_IN_DESKTOP_APP && <p className="desktop">
-			<a href="https://skeddles.itch.io/skedule" target="_blank">Desktop app for Windows</a>
-		</p>}
+		<hr/>
+	
+		{!RUNNING_IN_DESKTOP_APP && <>
+		
+		<p className="tipping2">
+			Like skedule? <a href="https://ko-fi.com/skeddles" target="_blank">Tip via Ko-Fi <KoFiIcon/></a>
+		</p>
+
+
+		<p className="desktop">
+			<a href="https://skeddles.itch.io/skedule" target="_blank">Desktop app for Windows <ItchIoIcon/></a>
+		</p>
+		
+		</>}
+
+
 
 		<p className="social">
 			Created by <strong>skeddles</strong> 
@@ -32,12 +46,16 @@ export default function Info({isOpen}: InfoProps) {
 			<a href="https://www.youtube.com/@skeddless" target="_blank"><YoutubeIcon/></a>
 			<a href="https://skeddles.itch.io/" target="_blank"><ItchIoIcon/></a>
 		</p>
-	
-		<div className="tipping">
+
+
+		{!RUNNING_IN_DESKTOP_APP && <div className="tipping">
 			<p>Like this tool?</p>
 			<a href='https://ko-fi.com/skeddles' target='_blank'><img height='36' style={{border: '0px', height: '36px'}} src='https://storage.ko-fi.com/cdn/kofi1.png?v=6'  alt='Buy Me a Coffee at ko-fi.com' /></a>
 			<p>Tip via Ko-Fi</p>
-		</div>
+		</div>}
+
+		
+		<hr/>
 	
 	</div>)
 }
