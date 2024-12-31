@@ -8,7 +8,7 @@
 
 	.fill {
 		position: absolute;
-		background-color: rgba(255,255,255,0.75); /*//TODO revert this back to a solid color*/
+		background-color: var(--bg-darker);
 		height: 100%;
 		transition: width 1000ms;
 	}
