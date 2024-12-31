@@ -1,0 +1,21 @@
+.ThemeSelector {
+	button {
+		width: 2em;
+		height: 2em;
+		border: none;
+		border-radius: 0.5em;
+		margin-right: 0.75em;
+		cursor: pointer;
+		outline: solid 2px white;
+		transition: outline 0.1s ease-in-out, transform 0.1s ease-in-out;
+
+		&.selected {
+			outline: solid 4px white;
+		}
+
+		&:hover {
+			outline: solid 4px white;
+			transform: scale(1.1);
+		}
+	}
+}

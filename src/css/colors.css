@@ -1,4 +1,12 @@
-html {
+
+.theme-blue {background-color: #425471;}
+.theme-red {background-color: #5c3636;}
+.theme-green {background-color: #365c36;}
+.theme-black {background-color: #000000;}
+.theme-gray {background-color: #7f7f7f;}
+.theme-white {background-color: #ffffff;}
+
+.app.blue {
 	
 	--bg: #282c34;
 		--bg-lighter: #364055;
@@ -11,4 +19,75 @@ html {
 			--fg-lighterer: #b9dbfe;
 		--fg-darker: #6487cf;
 			--fg-darkerer: #395793;
+}
+
+.app.red {
+	--bg: #391616;
+		--bg-lighter: #692b20;
+			--bg-lighterer: #a54c20;
+		--bg-darker: #301111;
+			--bg-darkerer: #1a0707;
+
+	--fg: #e67d62;
+		--fg-lighter: #ffa787;
+			--fg-lighterer: #ffd199;
+		--fg-darker: #e6755c;
+			--fg-darkerer: #b3483a;
+}
+
+.app.green {
+	--bg: #212b21;
+		--bg-lighter: #425c2e;
+			--bg-lighterer: #5d8d3d;
+		--bg-darker: #181e1b;
+			--bg-darkerer: #111513;
+
+	--fg: #96c680;
+		--fg-lighter: #8aca7f;
+			--fg-lighterer: #b7f08c;
+		--fg-darker: #6aa26d;
+			--fg-darkerer: rgb(68, 150, 102);
+}
+
+
+.app.black {
+	--bg: #0c0c0c;
+		--bg-lighter: #1d1d1d;
+			--bg-lighterer: #292929;
+		--bg-darker: #070707;
+			--bg-darkerer: #000000;
+
+	--fg: #818181;
+		--fg-lighter: #dfdfdf;
+			--fg-lighterer: #efefef;
+		--fg-darker: #424242;
+			--fg-darkerer: #3d3d3d;
+}
+
+
+.app.gray {
+	--bg: #686868;
+		--bg-lighter: #7f7f7f;
+			--bg-lighterer: #8c8c8c;
+		--bg-darker: #5b5b5b;
+			--bg-darkerer: #3b3b3b;
+	--fg: #cbcbcb;
+		--fg-lighter: #e0e0e0;
+			--fg-lighterer: #ffffff;
+		--fg-darker: #cccccc;
+			--fg-darkerer: #b1b1b1;
+}
+
+.app.white {
+	--bg: #ffffff;
+		--bg-lighter: #f8f8f8;
+			--bg-lighterer: #ffffff;
+		--bg-darker: #d6d6d6;
+			--bg-darkerer: #b3b3b3;
+
+	--fg: #4f4f4f;
+		--fg-lighter: #656565;
+			--fg-lighterer: #9f9f9f;
+		--fg-darker: #464646;
+			--fg-darkerer: #555555;
 }

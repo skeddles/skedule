@@ -7,10 +7,12 @@ import SlotEditor from './SlotEditor'
 import TimeSelector from './TimeSelector';
 import Checkbox from './Checkbox';
 import Info from './Info';
+import ThemeSelector from './ThemeSelector';
 
 import '../css/Settings.css'
 import PlusIcon from '../assets/plus.svg?react'
 import HelpIcon from '../assets/help.svg?react'
+
 
 
 interface timeLineEditorProps {
@@ -23,9 +25,11 @@ interface timeLineEditorProps {
 	setShowClock: Function;
 	playSounds: boolean;
 	setPlaySounds: Function;
+	theme: string;
+	setTheme: Function;
 }
 
-export default function TimelineEditor({isOpen, timeSlots, setTimeslots, startTime, setStartTime, showClock, setShowClock, playSounds, setPlaySounds}: timeLineEditorProps) {
+export default function TimelineEditor({isOpen, timeSlots, setTimeslots, startTime, setStartTime, showClock, setShowClock, playSounds, setPlaySounds, theme, setTheme}: timeLineEditorProps) {
 
 	const [helpPopupIsOpen, setHelpPopupIsOpen] = useState(false);
 
@@ -68,7 +72,8 @@ export default function TimelineEditor({isOpen, timeSlots, setTimeslots, startTi
 				<Checkbox label="Show Clock" checked={showClock} onChange={setShowClock}/>
 				<Checkbox label="Play Sounds" checked={playSounds} onChange={setPlaySounds}/>
 
-
+				<h2>Theme</h2>
+				<ThemeSelector theme={theme} setTheme={setTheme}/>
 
 			</div>
 	</div>)

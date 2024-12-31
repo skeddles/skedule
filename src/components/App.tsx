@@ -16,6 +16,7 @@ function App() {
 	const [settingsPanelIsOpen, setSettingsPanelIsOpen] = useState(timeslots.length==0);
 	const [showClock, setShowClock] = useState(JSON.parse(localStorage.getItem("showClock") || "true") ?? true);
 	const [playSounds, setPlaySounds] = useState(JSON.parse(localStorage.getItem("playSounds") || "true") ?? true);
+	const [theme, setTheme] = useState(localStorage.getItem("theme") || "blue");
 
 	function updateStartTime (newStartTime: number) {
 		setStartTime(newStartTime);
@@ -37,8 +38,13 @@ function App() {
 		localStorage.setItem("playSounds", newPlaySounds.toString());
 	}
 
+	function updateTheme (newTheme: string) {
+		setTheme(newTheme);
+		localStorage.setItem("theme", newTheme);
+	}
+
 	return (
-		<div className="app">
+		<div className={"app " + theme}>
 			<Settings 
 				isOpen={settingsPanelIsOpen} 
 				timeSlots={timeslots} 
@@ -49,6 +55,8 @@ function App() {
 				setShowClock={updateShowClock} 
 				playSounds={playSounds} 
 				setPlaySounds={updatePlaySounds}
+				theme={theme}
+				setTheme={updateTheme}
 				/>
 
 			<Display 
