@@ -16,6 +16,7 @@ const audio = new Audio(bellSound);
 export default function Display({timeSlots,startTime,playSounds}: DisplayProps) {
 
 	const currentTask = getCurrentTask(timeSlots, startTime);
+	console.log('const currentTask =', currentTask);
 
 	const lastTask = useRef(currentTask.index);
 	if (lastTask.current !== currentTask.index) {
@@ -25,6 +26,7 @@ export default function Display({timeSlots,startTime,playSounds}: DisplayProps) 
 				audio.play();
 		}
 		lastTask.current = currentTask.index;
+		console.log('lastTask.current = ', lastTask.current);
 	}
  
 	return (<>
