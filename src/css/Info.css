@@ -10,12 +10,28 @@
 		svg {vertical-align:middle;}
 		a:not(:hover) svg path {fill: var(--fg-darkerer)}
 	}
-	a {
+	p.social a, p.tipping a {
 		display: inline-block;
 		padding: 0.25em;
 		transition: transform 0.1s ease-in-out;
 		&:hover {
 			transform: scale(1.2);
+		}
+	}
+
+	p.desktop {
+		a, a:visited {
+			color: var(--fg);
+			text-decoration: none;
+			border-bottom: 2px dotted var(--fg-lighter);
+			font-weight: bold;
+
+
+			&:hover {
+				border-bottom: 2px solid var(--fg-lighterer);
+				color: var(--fg-lighter);
+
+			}
 		}
 	}
 }

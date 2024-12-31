@@ -9,6 +9,7 @@ import '../css/colors.css'
 
 import SettingsIcon from '../assets/gear.svg?react'
 
+
 function App() {
 
 	const [timeslots, setTimeslots] = useState(JSON.parse(localStorage.getItem("timeSlots") || "[]") ?? []);
@@ -42,6 +43,8 @@ function App() {
 		setTheme(newTheme);
 		localStorage.setItem("theme", newTheme);
 	}
+
+
 
 	return (
 		<div className={"app " + theme}>

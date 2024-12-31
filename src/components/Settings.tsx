@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import {RUNNING_IN_DESKTOP_APP} from '../utils/is-electron'
 
 import { timeslot } from '../types/timeSlot';
 import minutesToTime from '../utils/minutes-to-time';
@@ -72,8 +73,10 @@ export default function TimelineEditor({isOpen, timeSlots, setTimeslots, startTi
 				<Checkbox label="Show Clock" checked={showClock} onChange={setShowClock}/>
 				<Checkbox label="Play Sounds" checked={playSounds} onChange={setPlaySounds}/>
 
+				{RUNNING_IN_DESKTOP_APP && <>
 				<h2>Theme</h2>
 				<ThemeSelector theme={theme} setTheme={setTheme}/>
+				</>}
 
 			</div>
 	</div>)

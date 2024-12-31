@@ -1,3 +1,4 @@
+import {RUNNING_IN_DESKTOP_APP} from '../utils/is-electron'
 
 import '../css/Info.css'
 import BlueskyIcon from '../assets/bluesky.svg?react'
@@ -20,6 +21,10 @@ export default function Info({isOpen}: InfoProps) {
 		<p>
 			Add time blocks for each block of time you want to dedicate to a single thing. You can either keep it generic such as "Work" or "Clean", or you can update these with specific tasks at the beginning of each day. I recommend including breaks in your schedule, as well as time for meals and other activities, as the clock waits for no one. 
 		</p>
+
+		{!RUNNING_IN_DESKTOP_APP && <p className="desktop">
+			<a href="https://skeddles.itch.io/skedule" target="_blank">Desktop app for Windows</a>
+		</p>}
 
 		<p className="social">
 			Created by <strong>skeddles</strong> 
